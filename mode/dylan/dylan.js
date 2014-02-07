@@ -99,13 +99,9 @@ CodeMirror.defineMode("dylan", function(config, parserConfig) {
         if (patterns.hasOwnProperty(patternName))
             patterns[patternName] = new RegExp("^" + patterns[patternName]);
 
-    [
-	'keyword', 
-	'definition', 
-	'simpleDefinition', 
-    ].forEach(function (type) {
+    ['keyword', 'definition'].forEach(function (type) {
         patterns[type] = words[type].map(function (word) {
-            return new RegExp("^" + word);
+            return new RegExp('^' + word);
         });
     });
 
@@ -340,9 +336,7 @@ CodeMirror.defineMode("dylan", function(config, parserConfig) {
             return 0;
         },
 	blockCommentStart: "/*",
-	blockCommentEnd: "*/",
-	matchBrackets: true,
-	autoCloseBrackets:true
+	blockCommentEnd: "*/"
     }
 });
 
